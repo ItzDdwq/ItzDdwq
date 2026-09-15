@@ -1,16 +1,18 @@
-## Hi there 👋
+# Привет 👋
 
-<!--
-**ItzDdwq/ItzDdwq** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Я начинающий разработчик. Пишу на C++, C#, Java.
 
-Here are some ideas to get you started:
+## 🛠 Стек
+- C++ / C# / Java
+- SQL / PostgreSQL
+- Git / CMake
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 📌 Проекты
+- [calculator-cpp](https://github.com/ItzDdwq/calculator-cpp) — консольный калькулятор на C++
+- [Task-Manager-Java](https://github.com/ItzDdwq/Task-Manager-Java) — менеджер задач
+- [Num-Quest-CSharp](https://github.com/ItzDdwq/Num-Quest-CSharp) — игра «угадай число»
+
+## 📊 Статистика
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ItzDdwq&show_icons=true&theme=dark&hide_border=true&include_all_commits=true&count_private=true)
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ItzDdwq&layout=compact&theme=dark&hide_border=true)
