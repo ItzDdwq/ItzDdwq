@@ -15,4 +15,4 @@
 ## 📊 Статистика
 ![GitHub Stats](https://github-stats-extended.vercel.app/api?username=ItzDdwq&include_all_commits=true&theme=dark)
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ItzDdwq&layout=compact&theme=dark&hide_border=true)
+![GitHub TopLang](https://github-stats-extended.vercel.app/api/top-langs?username=ItzDdwq&layout=compact&langs_count=4&theme=dark)
