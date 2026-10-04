@@ -19,4 +19,10 @@
 
 
 ## Donate
+
+- **BTC (Bitcoin)**: bc1qdhtrgy08tlf99u7lxvezt83jsuf457g4n2jyls
+- **EVM (Ethereum/BSC/Polygon)**: 0x2572de86B31f6c92A0D404a4F0365D8E16088aDF
+- **USDT (TRC20) / TRX**: TA4V3nzjzcuAZeUtc4tYYebewGbtQZJV1t
+- **TON**: UQBJTizEUIrjn1tQ0tXc9WXciDY3n5l5PYGmpLpf6jpk9Rou
+
 -[![Toncoin](ссылка_на_картинку)](https://app.tonkeeper.com/transfer/UQAqDu3GDgh6ZH8INiPpMpiI95i8nyxlRdjaV2K6p3esKV0l)
