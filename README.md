@@ -18,3 +18,5 @@
 ![GitHub TopLang](https://github-stats-extended.vercel.app/api/top-langs?username=ItzDdwq&layout=compact&langs_count=4&theme=dark)
 
 
+## Donate
+- **TON**: UQAqDu3GDgh6ZH8INiPpMpiI95i8nyxlRdjaV2K6p3esKV0l
