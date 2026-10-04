@@ -25,4 +25,3 @@
 - **USDT (TRC20) / TRX**: TA4V3nzjzcuAZeUtc4tYYebewGbtQZJV1t
 - **TON**: UQBJTizEUIrjn1tQ0tXc9WXciDY3n5l5PYGmpLpf6jpk9Rou
 
--[![Toncoin](ссылка_на_картинку)](https://app.tonkeeper.com/transfer/UQAqDu3GDgh6ZH8INiPpMpiI95i8nyxlRdjaV2K6p3esKV0l)
