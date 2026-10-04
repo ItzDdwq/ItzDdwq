@@ -19,4 +19,4 @@
 
 
 ## Donate
--[![Toncoin](ссылка_на_картинку)](ton://transfer/UQAqDu3GDgh6ZH8INiPpMpiI95i8nyxlRdjaV2K6p3esKV0l)
+-[![Toncoin](ссылка_на_картинку)](https://app.tonkeeper.com/transfer/UQAqDu3GDgh6ZH8INiPpMpiI95i8nyxlRdjaV2K6p3esKV0l)
