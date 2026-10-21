@@ -20,8 +20,8 @@
 
 ## Donate
 
-- **BTC (Bitcoin)**: bc1qdhtrgy08tlf99u7lxvezt83jsuf457g4n2jyls
-- **EVM (Ethereum/BSC/Polygon)**: 0x2572de86B31f6c92A0D404a4F0365D8E16088aDF
-- **USDT (TRC20) / TRX**: TA4V3nzjzcuAZeUtc4tYYebewGbtQZJV1t
-- **TON**: UQBJTizEUIrjn1tQ0tXc9WXciDY3n5l5PYGmpLpf6jpk9Rou
+- **![BTC](https://essamamdani.github.io/open-crypto-icons/icons/colored/btc.svg)**: bc1qdhtrgy08tlf99u7lxvezt83jsuf457g4n2jyls
+- **![ETH](https://essamamdani.github.io/open-crypto-icons/icons/colored/eth.svg)**: 0x2572de86B31f6c92A0D404a4F0365D8E16088aDF
+- **![USDT](https://essamamdani.github.io/open-crypto-icons/icons/colored/usdt.svg)**: TA4V3nzjzcuAZeUtc4tYYebewGbtQZJV1t
+- **![TON](https://essamamdani.github.io/open-crypto-icons/icons/colored/ton.svg)**: UQBJTizEUIrjn1tQ0tXc9WXciDY3n5l5PYGmpLpf6jpk9Rou
 
