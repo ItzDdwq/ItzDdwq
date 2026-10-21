@@ -18,10 +18,10 @@
 ![GitHub TopLang](https://github-stats-extended.vercel.app/api/top-langs?username=ItzDdwq&layout=compact&langs_count=4&theme=dark)
 
 
-## Donate
+## Support / Donate
 
-- **![Bitcoin](https://img.shields.io/badge/Bitcoin-000?style=for-the-badge&logo=bitcoin&logoColor=white)**: bc1qdhtrgy08tlf99u7lxvezt83jsuf457g4n2jyls
-- **![ETH](https://essamamdani.github.io/open-crypto-icons/icons/colored/eth.svg)**: 0x2572de86B31f6c92A0D404a4F0365D8E16088aDF
-- **![USDT](https://essamamdani.github.io/open-crypto-icons/icons/colored/usdt.svg)**: TA4V3nzjzcuAZeUtc4tYYebewGbtQZJV1t
-- **![TON](https://essamamdani.github.io/open-crypto-icons/icons/colored/ton.svg)**: UQBJTizEUIrjn1tQ0tXc9WXciDY3n5l5PYGmpLpf6jpk9Rou
+| ![Bitcoin](https://img.shields.io/badge/Bitcoin-F7931A?style=for-the-badge&logo=bitcoin&logoColor=white) | `bc1qdhtrgy08tlf99u7lxvezt83jsuf457g4n2jyls` |
+| ![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white) | `0x2572de86B31f6c92A0D404a4F0365D8E16088aDF` |
+| ![Tether](https://img.shields.io/badge/USDT-168363?style=for-the-badge&logo=tether&logoColor=white) | `TA4V3nzjzcuAZeUtc4tYYebewGbtQZJV1t` |
+| ![TON](https://img.shields.io/badge/TON-0098EA?style=for-the-badge&logoColor=white) | `UQBJTizEUIrjn1tQ0tXc9WXciDY3n5l5PYGmpLpf6jpk9Rou` |
 
