@@ -8,9 +8,9 @@
 - Git / CMake
 
 ## 📌 Проекты
-- [calculator-cpp](https://github.com/ItzDdwq/calculator-cpp) — консольный калькулятор на C++
-- [Task-Manager-Java](https://github.com/ItzDdwq/Task-Manager-Java) — менеджер задач
-- [Num-Quest-CSharp](https://github.com/ItzDdwq/Num-Quest-CSharp) — игра «угадай число»
+- [calculator-cpp](https://github.com/ItzDdwq/DataValidator) - валидатор данных
+- [Task-Manager-Java](https://github.com/ItzDdwq/Task-Manager-Java) - менеджер задач
+- [Num-Quest-CSharp](https://github.com/ItzDdwq/Num-Quest-CSharp) - игра «угадай число»
 
 ## 📊 Статистика
 ![GitHub Stats](https://github-stats-extended.vercel.app/api?username=ItzDdwq&include_all_commits=true&theme=dark)
