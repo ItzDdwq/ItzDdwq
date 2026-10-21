@@ -20,7 +20,7 @@
 
 ## Support / Donate
 
-- ![Bitcoin](https://img.shields.io/badge/Bitcoin-000?style=for-the-badge&logo=bitcoin&logoColor=white): `bc1qdhtrgy08tlf99u7lxvezt83jsuf457g4n2jyls`
+<img src="https://img.shields.io/badge/Bitcoin-000?style=for-the-badge&logo=bitcoin&logoColor=white" alt="Bitcoin"> `bc1qdhtrgy08tlf99u7lxvezt83jsuf457g4n2jyls`
 - ![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white): `0x2572de86B31f6c92A0D404a4F0365D8E16088aDF`
 - ![USDT](https://img.shields.io/badge/USDT-168363?style=for-the-badge&logo=tether&logoColor=white): `TA4V3nzjzcuAZeUtc4tYYebewGbtQZJV1t`
 - ![TON](https://img.shields.io/badge/TON-0098EA?style=for-the-badge&logoColor=white): `UQBJTizEUIrjn1tQ0tXc9WXciDY3n5l5PYGmpLpf6jpk9Rou`
