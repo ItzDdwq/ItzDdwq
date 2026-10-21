@@ -8,7 +8,7 @@
 - Git / CMake
 
 ## 📌 Проекты
-- [calculator-cpp](https://github.com/ItzDdwq/DataValidator) - валидатор данных
+- [DataValidator](https://github.com/ItzDdwq/DataValidator) - валидатор данных
 - [Task-Manager-Java](https://github.com/ItzDdwq/Task-Manager-Java) - менеджер задач
 - [Num-Quest-CSharp](https://github.com/ItzDdwq/Num-Quest-CSharp) - игра «угадай число»
 
