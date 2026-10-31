@@ -10,7 +10,7 @@
 ## 📌 Проекты
 - [DataValidator](https://github.com/ItzDdwq/DataValidator) - валидатор данных
 - [Noctis](https://github.com/ItzDdwq/Noctis) - форк телеграма
-- [My-Site](https://github.com/ItzDdwq/ItzDdwq) - мой [сайт](http://itzddwq.l.cd)
+- [ItzDdwq](https://github.com/ItzDdwq/ItzDdwq) - мой [сайт](http://itzddwq.l.cd) и readme
 
 ## 📊 Статистика
 ![GitHub Stats](https://github-stats-extended.vercel.app/api?username=ItzDdwq&include_all_commits=true&theme=dark)
