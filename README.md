@@ -9,9 +9,8 @@
 
 ## 📌 Проекты
 - [DataValidator](https://github.com/ItzDdwq/DataValidator) - валидатор данных
-- [Task-Manager-Java](https://github.com/ItzDdwq/Task-Manager-Java) - менеджер задач
-- [Num-Quest-CSharp](https://github.com/ItzDdwq/Num-Quest-CSharp) - игра «угадай число»
-- [My-Site](https://github.com/ItzDdwq/ItzDdwq) - мой сайт (itzddwq.l.cd)
+- [Noctis](https://github.com/ItzDdwq/Noctis) - форк телеграма
+- [My-Site](https://github.com/ItzDdwq/ItzDdwq) - мой [сайт](http://itzddwq.l.cd)
 
 ## 📊 Статистика
 ![GitHub Stats](https://github-stats-extended.vercel.app/api?username=ItzDdwq&include_all_commits=true&theme=dark)
