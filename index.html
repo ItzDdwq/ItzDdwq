@@ -1,9 +1,86 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>ItzDdwq</title>
-  </head>
-  <body>
-    <h1>Itz Real Ddwq</h1>
-  </body>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ItzDdwq</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <header class="hero">
+    <div class="hero-text">
+      <p class="tag">начинающий разработчик</p>
+      <h1>ItzDdwq</h1>
+      <p class="sub">C++ · embedded · форки</p>
+      <div class="links">
+        <a href="https://github.com/itzddwq" target="_blank">GitHub</a>
+        <a href="https://t.me/AgUe_Aiagy" target="_blank">Telegram</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img id="avatar" class="avatar" src="" alt="avatar">
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="discord-status" id="discord-status" style="display:none;">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="discord-text"></span>
+      </div>
+      <h2>Проекты</h2>
+    <div class="cards">
+        <div class="card">
+          <h3>Noctis</h3>
+          <p>Форк Telegram для Android. Собрал стоковый клиент, поменял иконки и название, добавил свои настройки и открыл скрытые функции в интерфейсе.</p>
+        </div>
+        <div class="card">
+          <h3>ESP32</h3>
+          <p>Практика с железом: передаю состояние кнопки по ESP-NOW между C3 и S3, разбираюсь с GPIO и подтяжками, работаю в PlatformIO и решаю проблемы с версиями API.</p>
+        </div>
+        <div class="card">
+          <h3>S.A.F.D.</h3>
+          <p>Модульная носимая система. Отдельные узлы на ESP32 обмениваются командами и постепенно объединяются в одну экосистему. Пока в разработке.</p>
+        </div>
+        <div class="card">
+          <h3>DataValidator</h3>
+          <p>Небольшая C++ библиотека для проверки email, IP и телефона. Сборка через CMake, есть header-only вариант, README и релизы.</p>
+        </div>
+        <div class="card">
+          <h3>Интерпретатор bimbimbambam</h3>
+          <p>Учебный интерпретатор: разбирает выражения, считает результат и обрабатывает ошибки. Интересно, как текст превращается в дерево и код.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Языки</h2>
+      <ul class="stack">
+        <li>C++</li>
+        <li>C#</li>
+        <li>Java</li>
+        <li>SQL</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Инструменты</h2>
+      <ul class="stack">
+        <li>Git</li>
+        <li>CMake</li>
+        <li>PlatformIO</li>
+        <li>PostgreSQL</li>
+        <li>Linux</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>права не защищены · <span id="year"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
