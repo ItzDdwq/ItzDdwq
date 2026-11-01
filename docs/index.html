@@ -1,435 +1,487 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Визитка - ItzDdwq</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Визитка - ItzDdwq</title>
 
-    :root {
-      --bg: #050505;
-      --panel: #0b0b0b;
-      --line: #1c1c1c;
-      --fg: #eaeaea;
-      --dim: #7a7a7a;
-      --accent: #ffcc00;
-    }
+  <!-- SEO / шаринг -->
+  <meta name="description" content="ItzDdwq — начинающий разработчик. Embedded, C++, Android, инфраструктура S.A.F.D.">
+  <meta property="og:title" content="ItzDdwq — визитка">
+  <meta property="og:description" content="Embedded · C++ · Android · S.A.F.D.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#050505">
 
-    html { scroll-behavior: smooth; }
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      background: var(--bg);
-      color: var(--fg);
-      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-      line-height: 1.6;
-      overflow-x: hidden;
-      user-select: none;
-      -webkit-user-select: none;
-    }
+    :root {
+      --bg: #050505;
+      --panel: #0b0b0b;
+      --line: #1c1c1c;
+      --fg: #eaeaea;
+      --dim: #7a7a7a;
+      --accent: #ffcc00;
+      --header-h: 64px;
+    }
 
-    .grid-bg {
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(to right, rgba(255,204,0,.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,204,0,.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-      z-index: -2;
-      pointer-events: none;
-    }
+    html { scroll-behavior: smooth; }
 
-    .scanline {
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        transparent 0,
-        transparent 3px,
-        rgba(255,255,255,.012) 3px,
-        rgba(255,255,255,.012) 4px
-      );
-      z-index: -1;
-      pointer-events: none;
-    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* создаём stacking context, чтобы фоны с z-index:-1 не ушли за body */
+      position: relative;
+      z-index: 0;
+      isolation: isolate;
+    }
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 5vw;
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(6px);
-      position: sticky;
-      top: 0;
-      background: rgba(5,5,5,.8);
-      z-index: 10;
-    }
-    .logo { font-weight: 700; letter-spacing: .1em; }
-    .logo span { color: var(--accent); }
-    .nav a {
-      color: var(--dim);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-size: .85rem;
-      transition: .2s;
-    }
-    .nav a:hover { color: var(--accent); }
+    /* Отключаем выделение только там, где это уместно (лого/декор), а не на всём body */
+    .logo { user-select: none; -webkit-user-select: none; }
 
-    .hero { padding: 8rem 5vw 5rem; max-width: 1100px; }
-    .kicker { color: var(--accent); font-size: .85rem; letter-spacing: .12em; }
-    .hero h1 {
-      font-size: clamp(3rem, 11vw, 7rem);
-      line-height: .95;
-      margin: .6rem 0;
-      letter-spacing: -.03em;
-      text-shadow: 0 0 30px rgba(255,204,0,.15);
-    }
-    .lead { color: var(--dim); max-width: 46ch; margin-bottom: 2rem; }
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255,204,0,.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,204,0,.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      z-index: -2;
+      pointer-events: none;
+    }
 
-    .socials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .7rem;
-    }
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .65rem 1.2rem;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      text-decoration: none;
-      color: var(--fg);
-      font-size: .88rem;
-      transition: .2s;
-      background: var(--panel);
-    }
-    .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-    .social-btn svg { width: 16px; height: 16px; fill: currentColor; }
+    .scanline {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 3px,
+        rgba(255,255,255,.012) 3px,
+        rgba(255,255,255,.012) 4px
+      );
+      z-index: -1;
+      pointer-events: none;
+    }
 
-    .section { padding: 4rem 5vw; max-width: 1100px; }
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: .8rem;
-      margin-bottom: 2rem;
-    }
-    .num { color: var(--accent); font-size: .8rem; letter-spacing: .1em; }
-    .section h2 { font-size: 1.6rem; font-weight: 600; letter-spacing: -.01em; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5vw;
+      min-height: var(--header-h);
+      border-bottom: 1px solid var(--line);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      background: rgba(5,5,5,.8);
+      z-index: 10;
+    }
+    .logo { font-weight: 700; letter-spacing: .1em; }
+    .logo span { color: var(--accent); }
+    .nav { display: flex; gap: 1.5rem; }
+    .nav a {
+      color: var(--dim);
+      text-decoration: none;
+      font-size: .85rem;
+      transition: color .2s;
+    }
+    .nav a:hover,
+    .nav a:focus-visible { color: var(--accent); }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    .project {
-      background: var(--panel);
-      padding: 1.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: .8rem;
-      transition: .25s;
-    }
-    .project:hover { background: #111; }
-    .p-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-    .project h3 { font-size: 1.05rem; }
-    .tag {
-      font-size: .7rem;
-      color: var(--dim);
-      border: 1px solid var(--line);
-      padding: .15rem .5rem;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-    .project p { color: var(--dim); font-size: .88rem; flex-grow: 1; }
-    .git-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: .8rem;
-      letter-spacing: .05em;
-      align-self: flex-start;
-    }
-    .git-link:hover { text-decoration: underline; }
-    .project.placeholder {
-      opacity: .4;
-      grid-column: 1 / -1;
-    }
+    /* видимый фокус для всех интерактивных элементов */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
 
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 2rem;
-    }
-    .stack-col h4 {
-      font-size: .8rem;
-      color: var(--accent);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      margin-bottom: .8rem;
-    }
-    .stack-col ul { list-style: none; }
-    .stack-col li {
-      color: var(--dim);
-      padding: .25rem 0;
-      border-bottom: 1px dashed rgba(255,255,255,.04);
-      font-size: .9rem;
-    }
+    .hero { padding: 8rem 5vw 5rem; max-width: 1100px; margin: 0 auto; }
+    .kicker { color: var(--accent); font-size: .85rem; letter-spacing: .12em; }
+    .hero h1 {
+      font-size: clamp(3rem, 11vw, 7rem);
+      line-height: .95;
+      margin: .6rem 0;
+      letter-spacing: -.03em;
+      text-shadow: 0 0 30px rgba(255,204,0,.15);
+    }
+    .lead { color: var(--dim); max-width: 46ch; margin-bottom: 2rem; }
 
-    /* setup */
-    .setup-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    .setup-card {
-      background: var(--panel);
-      padding: 1.6rem;
-    }
-    .setup-card h4 {
-      font-size: .8rem;
-      color: var(--accent);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .setup-card dl { display: flex; flex-direction: column; gap: .5rem; }
-    .setup-card dt { color: var(--fg); font-size: .9rem; }
-    .setup-card dd { color: var(--dim); font-size: .85rem; padding-left: 1rem; border-left: 1px solid var(--line); }
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .65rem 1.2rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--fg);
+      font-size: .88rem;
+      transition: color .2s, border-color .2s, transform .2s;
+      background: var(--panel);
+    }
+    .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .social-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
-    /* faq */
-    .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); }
-    .faq-item { background: var(--panel); }
-    .faq-q {
-      width: 100%;
-      text-align: left;
-      background: transparent;
-      border: none;
-      color: var(--fg);
-      padding: 1.2rem 1.6rem;
-      font-family: inherit;
-      font-size: .95rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      transition: .2s;
-    }
-    .faq-q:hover { color: var(--accent); }
-    .faq-q .plus { color: var(--accent); font-size: 1.2rem; transition: .3s; }
-    .faq-item.open .faq-q .plus { transform: rotate(45deg); }
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .3s ease;
-      color: var(--dim);
-      font-size: .88rem;
-      padding: 0 1.6rem;
-    }
-    .faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.2rem; }
+    .section {
+      padding: 4rem 5vw;
+      max-width: 1100px;
+      margin: 0 auto;
+      /* чтобы sticky-шапка не перекрывала начало секции при переходе по якорю */
+      scroll-margin-top: calc(var(--header-h) + 12px);
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: .8rem;
+      margin-bottom: 2rem;
+    }
+    .num { color: var(--accent); font-size: .8rem; letter-spacing: .1em; }
+    .section h2 { font-size: 1.6rem; font-weight: 600; letter-spacing: -.01em; }
 
-    footer {
-      display: flex;
-      justify-content: space-between;
-      padding: 2rem 5vw;
-      color: var(--dim);
-      font-size: .8rem;
-      border-top: 1px solid var(--line);
-    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .project {
+      background: var(--panel);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+      transition: background .25s;
+    }
+    .project:hover { background: #111; }
+    .p-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .project h3 { font-size: 1.05rem; }
+    .tag {
+      font-size: .7rem;
+      color: var(--dim);
+      border: 1px solid var(--line);
+      padding: .15rem .5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .project p { color: var(--dim); font-size: .88rem; flex-grow: 1; }
+    .git-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: .8rem;
+      letter-spacing: .05em;
+      align-self: flex-start;
+    }
+    .git-link:hover { text-decoration: underline; }
+    .project.placeholder {
+      opacity: .4;
+      grid-column: 1 / -1;
+    }
 
-    @media (max-width: 720px) {
-      .nav { display: none; }
-      .hero { padding-top: 5rem; }
-    }
-  </style>
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+    }
+    .stack-col h4 {
+      font-size: .8rem;
+      color: var(--accent);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
+    .stack-col ul { list-style: none; }
+    .stack-col li {
+      color: var(--dim);
+      padding: .25rem 0;
+      border-bottom: 1px dashed rgba(255,255,255,.04);
+      font-size: .9rem;
+    }
+
+    /* setup */
+    .setup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .setup-card {
+      background: var(--panel);
+      padding: 1.6rem;
+    }
+    .setup-card h4 {
+      font-size: .8rem;
+      color: var(--accent);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .setup-card dl { display: flex; flex-direction: column; gap: .5rem; }
+    .setup-card dt { color: var(--fg); font-size: .9rem; }
+    .setup-card dd { color: var(--dim); font-size: .85rem; padding-left: 1rem; border-left: 1px solid var(--line); }
+
+    /* faq — аккордеон на grid (без обрезки по max-height) */
+    .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .faq-item { background: var(--panel); }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      color: var(--fg);
+      padding: 1.2rem 1.6rem;
+      font-family: inherit;
+      font-size: .95rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: color .2s;
+    }
+    .faq-q:hover { color: var(--accent); }
+    .faq-q .plus { color: var(--accent); font-size: 1.2rem; transition: transform .3s; }
+    .faq-item.open .faq-q .plus { transform: rotate(45deg); }
+
+    /* плавное раскрытие через grid-template-rows: 0fr -> 1fr */
+    .faq-a {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .3s ease;
+      color: var(--dim);
+      font-size: .88rem;
+    }
+    .faq-a > div {
+      overflow: hidden;
+      padding: 0 1.6rem;
+    }
+    .faq-item.open .faq-a { grid-template-rows: 1fr; }
+    .faq-item.open .faq-a > div { padding-bottom: 1.2rem; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 5vw;
+      color: var(--dim);
+      font-size: .8rem;
+      border-top: 1px solid var(--line);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 720px) {
+      .nav { display: none; }
+      .hero { padding-top: 5rem; }
+    }
+
+    /* уважаем настройку «уменьшить движение» */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="grid-bg"></div>
-  <div class="scanline"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <div class="logo">ITZ<span>DDWQ</span></div>
-    <nav class="nav">
-      <a href="#projects">projects</a>
-      <a href="#stack">stack</a>
-      <a href="#setup">setup</a>
-      <a href="#faq">faq</a>
-    </nav>
-  </header>
+  <header class="topbar">
+    <div class="logo">ITZ<span>DDWQ</span></div>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#projects">projects</a>
+      <a href="#stack">stack</a>
+      <a href="#setup">setup</a>
+      <a href="#faq">faq</a>
+    </nav>
+  </header>
 
-  <main>
-    <section class="hero">
-      <p class="kicker">// embedded · c++ · quantum pc</p>
-      <h1>ItzDdwq</h1>
-      <p class="lead">Начинающий разработчик.</p>
+  <main>
+    <section class="hero">
+      <p class="kicker">// embedded · c++ · quantum pc</p>
+      <h1>ItzDdwq</h1>
+      <p class="lead">Начинающий разработчик.</p>
 
-      <div class="socials">
-        <a class="social-btn" href="https://github.com/itzddwq" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
-          GitHub
-        </a>
-        <a class="social-btn" href="https://t.me/AgUe_Aiagy" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M9.8 15.7 9.5 19c.4 0 .6-.2.9-.5l2.1-2 4.4 3.2c.8.4 1.4.2 1.6-.8l2.9-13.6c.3-1.2-.4-1.7-1.3-1.3L1.9 9.8c-1.2.5-1.2 1.1-.2 1.4l4.3 1.3L16.1 6c.5-.3 1-.1.6.2z"/></svg>
-          Telegram
-        </a>
-        <a class="social-btn" href="https://discord.com/users/1063011644957007955" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.2.5a18.3 18.3 0 0 1 4.3 2.2 15.4 15.4 0 0 0-12.9 0A18.3 18.3 0 0 1 10.9 3.5L10.6 3a19.8 19.8 0 0 0-4.9 1.4C2.5 9.1 1.8 13.7 2.1 18.2a19.9 19.9 0 0 0 6 3l.8-1.3a13 13 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4a13 13 0 0 1-2 1l.8 1.3a19.9 19.9 0 0 0 6-3c.4-5.2-.7-9.8-3.6-13.8M8.7 15.5c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4m6.6 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4"/></svg>
-          Discord
-        </a>
-        <a class="social-btn" href="https://steamcommunity.com/profiles/76561199583997575" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 0a12 12 0 0 0-12 11.9l6.4 2.7a3.3 3.3 0 0 1 1.9-.6h.2l2.8-4.1v-.1a4.5 4.5 0 1 1 4.5 4.5h-.1l-4.1 2.8v.2a3.3 3.3 0 0 1-6.6.1L0 14.8A12 12 0 1 0 12 0m-5.5 18.2-1.5-.6a2.5 2.5 0 0 0 4.6-.6 2.5 2.5 0 0 0-3.4-3.1l1.5.6a1.8 1.8 0 1 1-1.4 3.4zm11.3-5.6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m0-1a2 2 0 1 1 0-4 2 2 0 0 1 0 4"/></svg>
-          Steam
-        </a>
-        <a class="social-btn" href="https://youtube.com/@itzddwq" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8M9.5 15.6V8.4L15.8 12z"/></svg>
-          YouTube
-        </a>
-        <a class="social-btn" href="https://twitch.tv/itzddwq" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M4.3 1 1.5 4.7v14.6h5.2V22h3L12.7 19.3h4.1l5.7-5.7V1zm15.4 11.5-3.3 3.3h-5.2l-2.9 2.9v-2.9H4.3V3h15.4zM17.4 6h-2v5.7h2zm-5.3 0h-2v5.7h2z"/></svg>
-          Twitch
-        </a>
-      </div>
-    </section>
+      <div class="socials">
+        <a class="social-btn" href="https://github.com/itzddwq" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          GitHub
+        </a>
+        <a class="social-btn" href="https://t.me/AgUe_Aiagy" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.8 15.7 9.5 19c.4 0 .6-.2.9-.5l2.1-2 4.4 3.2c.8.4 1.4.2 1.6-.8l2.9-13.6c.3-1.2-.4-1.7-1.3-1.3L1.9 9.8c-1.2.5-1.2 1.1-.2 1.4l4.3 1.3L16.1 6c.5-.3 1-.1.6.2z"/></svg>
+          Telegram
+        </a>
+        <a class="social-btn" href="https://discord.com/users/1063011644957007955" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.2.5a18.3 18.3 0 0 1 4.3 2.2 15.4 15.4 0 0 0-12.9 0A18.3 18.3 0 0 1 10.9 3.5L10.6 3a19.8 19.8 0 0 0-4.9 1.4C2.5 9.1 1.8 13.7 2.1 18.2a19.9 19.9 0 0 0 6 3l.8-1.3a13 13 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4a13 13 0 0 1-2 1l.8 1.3a19.9 19.9 0 0 0 6-3c.4-5.2-.7-9.8-3.6-13.8M8.7 15.5c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4m6.6 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4"/></svg>
+          Discord
+        </a>
+        <a class="social-btn" href="https://steamcommunity.com/profiles/76561199583997575" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 0 0-12 11.9l6.4 2.7a3.3 3.3 0 0 1 1.9-.6h.2l2.8-4.1v-.1a4.5 4.5 0 1 1 4.5 4.5h-.1l-4.1 2.8v.2a3.3 3.3 0 0 1-6.6.1L0 14.8A12 12 0 1 0 12 0m-5.5 18.2-1.5-.6a2.5 2.5 0 0 0 4.6-.6 2.5 2.5 0 0 0-3.4-3.1l1.5.6a1.8 1.8 0 1 1-1.4 3.4zm11.3-5.6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m0-1a2 2 0 1 1 0-4 2 2 0 0 1 0 4"/></svg>
+          Steam
+        </a>
+        <a class="social-btn" href="https://youtube.com/@itzddwq" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8M9.5 15.6V8.4L15.8 12z"/></svg>
+          YouTube
+        </a>
+        <a class="social-btn" href="https://twitch.tv/itzddwq" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.3 1 1.5 4.7v14.6h5.2V22h3L12.7 19.3h4.1l5.7-5.7V1zm15.4 11.5-3.3 3.3h-5.2l-2.9 2.9v-2.9H4.3V3h15.4zM17.4 6h-2v5.7h2zm-5.3 0h-2v5.7h2z"/></svg>
+          Twitch
+        </a>
+      </div>
+    </section>
 
-    <section id="projects" class="section">
-      <div class="section-head">
-        <span class="num">01</span>
-        <h2>Projects</h2>
-      </div>
-      <div class="project-grid">
-        <article class="project">
-          <div class="p-top"><h3>Noctis</h3><span class="tag">Android</span></div>
-          <p>Форк Telegram. В планах шифрование между пользователями данного форка и специальная версия для связи с S.A.F.D.</p>
-          <a class="git-link" href="https://github.com/itzddwq/noctis" target="_blank">source ↗</a>
-        </article>
-        <article class="project">
-          <div class="p-top"><h3>Этот сайт</h3><span class="tag">Web</span></div>
-          <p>Не буду скрывать я его навайбкодил с DeepSeek т.к в вебе я не силен.</p>
-          <a class="git-link" href="https://github.com/itzddwq/itzddwq" target="_blank">source ↗</a>
-        </article>
-        <article class="project">
-          <div class="p-top"><h3>S.A.F.D.</h3><span class="tag">Embedded</span></div>
-          <p>Инфраструктура из часов, очков, сервера и других прикольных штук которые взаимосвязаны.</p>
-        </article>
-        <article class="project">
-          <div class="p-top"><h3>DataValidator</h3><span class="tag">C++</span></div>
-          <p>Простенький Header-only файл для проверки валидности IP, Email и номера телефона.</p>
-          <a class="git-link" href="https://github.com/itzddwq/DataValidator" target="_blank">source ↗</a>
-        </article>
-        <article class="project">
-          <div class="p-top"><h3>bimbimbambam</h3><span class="tag">C++</span></div>
-          <p>Вообще это проект для школы, но мне так же хотелось понять как работают интерпретируемые языки программирования.</p>
-          <a class="git-link" href="https://github.com/itzddwq/bim-bim-bam-bam" target="_blank">source ↗</a>
-        </article>
-        <article class="project">
-          <div class="p-top"><h3>Documentation</h3><span class="tag">Everyone</span></div>
-          <p>Я делал его чтобы вспомнить C# если когда нибудь вернусь к нему. А так же заполнять всякими новыми знаниями но я забросил.</p>
-          <a class="git-link" href="https://github.com/ItzDdwq/Documentation" target="_blank">source ↗</a>
-        </article>
-        <article class="project placeholder">
-          <div class="p-top"><h3>next</h3><span class="tag">none</span></div>
-          <p>Когда нибудь тут появится что то крутое.</p>
-        </article>
-      </div>
-    </section>
+    <section id="projects" class="section">
+      <div class="section-head">
+        <span class="num">01</span>
+        <h2>Projects</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project">
+          <div class="p-top"><h3>Noctis</h3><span class="tag">Android</span></div>
+          <p>Форк Telegram. В планах шифрование между пользователями данного форка и специальная версия для связи с S.A.F.D.</p>
+          <a class="git-link" href="https://github.com/itzddwq/noctis" target="_blank" rel="noopener noreferrer">source ↗</a>
+        </article>
+        <article class="project">
+          <div class="p-top"><h3>Этот сайт</h3><span class="tag">Web</span></div>
+          <p>Не буду скрывать — я его навайбкодил с DeepSeek, т.к. в вебе я не силён.</p>
+          <a class="git-link" href="https://github.com/itzddwq/itzddwq" target="_blank" rel="noopener noreferrer">source ↗</a>
+        </article>
+        <article class="project">
+          <div class="p-top"><h3>S.A.F.D.</h3><span class="tag">Embedded</span></div>
+          <p>Инфраструктура из часов, очков, сервера и других прикольных штук, которые взаимосвязаны.</p>
+        </article>
+        <article class="project">
+          <div class="p-top"><h3>DataValidator</h3><span class="tag">C++</span></div>
+          <p>Простенький header-only файл для проверки валидности IP, Email и номера телефона.</p>
+          <a class="git-link" href="https://github.com/itzddwq/DataValidator" target="_blank" rel="noopener noreferrer">source ↗</a>
+        </article>
+        <article class="project">
+          <div class="p-top"><h3>bimbimbambam</h3><span class="tag">C++</span></div>
+          <p>Вообще это проект для школы, но мне так же хотелось понять, как работают интерпретируемые языки программирования.</p>
+          <a class="git-link" href="https://github.com/itzddwq/bim-bim-bam-bam" target="_blank" rel="noopener noreferrer">source ↗</a>
+        </article>
+        <article class="project">
+          <div class="p-top"><h3>Documentation</h3><span class="tag">Everyone</span></div>
+          <p>Я делал его, чтобы вспомнить C#, если когда-нибудь вернусь к нему. А так же заполнять всякими новыми знаниями, но я забросил.</p>
+          <a class="git-link" href="https://github.com/ItzDdwq/Documentation" target="_blank" rel="noopener noreferrer">source ↗</a>
+        </article>
+        <article class="project placeholder">
+          <div class="p-top"><h3>next</h3><span class="tag">none</span></div>
+          <p>Когда-нибудь тут появится что-то крутое.</p>
+        </article>
+      </div>
+    </section>
 
-    <section id="stack" class="section">
-      <div class="section-head"><span class="num">02</span><h2>Stack</h2></div>
-      <div class="stack-grid">
-        <div class="stack-col">
-          <h4>Languages</h4>
-          <ul><li>C++</li><li>C#</li><li>Java</li><li>SQL</li></ul>
-        </div>
-        <div class="stack-col">
-          <h4>Tools</h4>
-          <ul><li>Git</li><li>CMake</li><li>PlatformIO</li><li>PostgreSQL</li><li>Linux</li></ul>
-        </div>
-        <div class="stack-col">
-          <h4>Hardware</h4>
-          <ul><li>Arduino UNO R3</li><li>ESP32-S3 N16R8</li></ul>
-        </div>
-      </div>
-    </section>
+    <section id="stack" class="section">
+      <div class="section-head"><span class="num">02</span><h2>Stack</h2></div>
+      <div class="stack-grid">
+        <div class="stack-col">
+          <h4>Languages</h4>
+          <ul><li>C++</li><li>C#</li><li>Java</li><li>SQL</li></ul>
+        </div>
+        <div class="stack-col">
+          <h4>Tools</h4>
+          <ul><li>Git</li><li>CMake</li><li>PlatformIO</li><li>PostgreSQL</li><li>Linux</li></ul>
+        </div>
+        <div class="stack-col">
+          <h4>Hardware</h4>
+          <ul><li>Arduino UNO R3</li><li>ESP32-S3 N16R8</li></ul>
+        </div>
+      </div>
+    </section>
 
-    <section id="setup" class="section">
-      <div class="section-head"><span class="num">03</span><h2>Setup / Gear</h2></div>
-      <div class="setup-grid">
-        <div class="setup-card">
-          <h4>Main PC</h4>
-          <dl>
-            <dt>CPU</dt><dd>Amd Ryzen 5 5600</dd>
-            <dt>RAM</dt><dd>Kingston Fury 2x32gb 3200</dd>
-            <dt>GPU</dt><dd>Gigabyte Windforce 4070 OC</dd>
-            <dt>PSU</dt><dd>Msi Mag A650BN</dd>
-            <dt>Storage</dt><dd>NVMe 500 GB + SATA SSD 256 GB</dd>
-          </dl>
-        </div>
-        <div class="setup-card">
-          <h4>Dev</h4>
-          <dl>
-            <dt>Editor</dt><dd>CLion / VS Code</dd>
-            <dt>Build</dt><dd>CMake, Gradle</dd>
-            <dt>Embedded</dt><dd>PlatformIO</dd>
-            <dt>OS</dt><dd>Windows + Ubuntu (Usb)</dd>
-          </dl>
-        </div>
-        <div class="setup-card">
-          <h4>Hardware</h4>
-          <dl>
-            <dt>Boards</dt><dd>Arduino UNO R3, 2× ESP32-S3 N16R8</dd>
-            <dt>Tools</dt><dd>Мультиметр</dd>
-          </dl>
-        </div>
-      </div>
-    </section>
+    <section id="setup" class="section">
+      <div class="section-head"><span class="num">03</span><h2>Setup / Gear</h2></div>
+      <div class="setup-grid">
+        <div class="setup-card">
+          <h4>Main PC</h4>
+          <dl>
+            <dt>CPU</dt><dd>AMD Ryzen 5 5600</dd>
+            <dt>RAM</dt><dd>Kingston Fury 2×32 GB 3200</dd>
+            <dt>GPU</dt><dd>Gigabyte Windforce 4070 OC</dd>
+            <dt>PSU</dt><dd>MSI MAG A650BN</dd>
+            <dt>Storage</dt><dd>NVMe 500 GB + SATA SSD 256 GB</dd>
+          </dl>
+        </div>
+        <div class="setup-card">
+          <h4>Dev</h4>
+          <dl>
+            <dt>Editor</dt><dd>CLion / VS Code</dd>
+            <dt>Build</dt><dd>CMake, Gradle</dd>
+            <dt>Embedded</dt><dd>PlatformIO</dd>
+            <dt>OS</dt><dd>Windows + Ubuntu (USB)</dd>
+          </dl>
+        </div>
+        <div class="setup-card">
+          <h4>Hardware</h4>
+          <dl>
+            <dt>Boards</dt><dd>Arduino UNO R3, 2× ESP32-S3 N16R8</dd>
+            <dt>Tools</dt><dd>Мультиметр</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
 
-    <section id="faq" class="section">
-      <div class="section-head"><span class="num">04</span><h2>FAQ</h2></div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-q">Что такое Noctis? <span class="plus">+</span></button>
-          <div class="faq-a">Это форк телеги под Android. Пока что есть только кастомные аватарки и целая куча моих ошибок и багов.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Почему ARM, а не x86? <span class="plus">+</span></button>
-          <div class="faq-a">ARM более энергоэффективен, да он слабее чем x86 но при этом ему хватит пассивного охлаждения и небольшого аккумулятора.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Зачем свой ноутбук, если можно купить готовый? <span class="plus">+</span></button>
-          <div class="faq-a">Я хочу быть независимым от чужих устройств, так же он ремонтопригоден и стоит не так уж и много по сравнению с новым.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Что такое S.A.F.D.? <span class="plus">+</span></button>
-          <div class="faq-a">Инфраструктура из нескольких носимых устройств связанных между собой сервером или esp-now.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Ты пишешь с ИИ? <span class="plus">+</span></button>
-          <div class="faq-a">Иногда да, получается как то само. Стараюсь его не использовать.</div>
-        </div>
-      </div>
-    </section>
-  </main>
+    <section id="faq" class="section">
+      <div class="section-head"><span class="num">04</span><h2>FAQ</h2></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1">Что такое Noctis? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1"><div>Это форк телеги под Android. Пока что есть только кастомные аватарки и целая куча моих ошибок и багов.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2">Почему ARM, а не x86? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2"><div>ARM более энергоэффективен: он слабее x86, но при этом ему хватит пассивного охлаждения и небольшого аккумулятора.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3">Зачем свой ноутбук, если можно купить готовый? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3"><div>Я хочу быть независимым от чужих устройств; так же он ремонтопригоден и стоит не так уж и много по сравнению с новым.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4">Что такое S.A.F.D.? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4"><div>Инфраструктура из нескольких носимых устройств, связанных между собой сервером или ESP-NOW.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5">Ты пишешь с ИИ? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5"><div>Иногда да, получается как-то само. Стараюсь его не использовать.</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <footer>
-    <span>itzddwq.l.cd</span>
-    <span id="year"></span>
-  </footer>
+  <footer>
+    <span>itzddwq.l.cd</span>
+    <span id="year">2026</span>
+  </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  <script>
+    // год в футере
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    document.querySelectorAll(".faq-q").forEach(btn => {
-      btn.addEventListener("click", () => {
-        btn.parentElement.classList.toggle("open");
-      });
-    });
-  </script>
+    // аккордеон FAQ с aria
+    document.querySelectorAll(".faq-q").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const item = btn.parentElement;
+        const open = item.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    });
+  </script>
 </body>
 </html>
