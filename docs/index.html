@@ -33,13 +33,11 @@
       font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
       line-height: 1.6;
       overflow-x: hidden;
-      /* создаём stacking context, чтобы фоны с z-index:-1 не ушли за body */
       position: relative;
       z-index: 0;
       isolation: isolate;
     }
 
-    /* Отключаем выделение только там, где это уместно (лого/декор), а не на всём body */
     .logo { user-select: none; -webkit-user-select: none; }
 
     .grid-bg {
@@ -93,7 +91,6 @@
     .nav a:hover,
     .nav a:focus-visible { color: var(--accent); }
 
-    /* видимый фокус для всех интерактивных элементов */
     a:focus-visible,
     button:focus-visible {
       outline: 2px solid var(--accent);
@@ -101,7 +98,6 @@
       border-radius: 4px;
     }
 
-  
     .hero { padding: 8rem 5vw 5rem; max-width: 1100px; }
     .kicker { color: var(--accent); font-size: .85rem; letter-spacing: .12em; }
     .hero h1 {
@@ -134,12 +130,11 @@
     .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
     .social-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
-    
-  .section {
-    padding: 4rem 5vw;
-    max-width: 1100px;
-    scroll-margin-top: calc(var(--header-h) + 12px);
-  }
+    .section {
+      padding: 4rem 5vw;
+      max-width: 1100px;
+      scroll-margin-top: calc(var(--header-h) + 12px);
+    }
     .section-head {
       display: flex;
       align-items: baseline;
@@ -211,7 +206,6 @@
       font-size: .9rem;
     }
 
-    /* setup */
     .setup-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -234,7 +228,6 @@
     .setup-card dt { color: var(--fg); font-size: .9rem; }
     .setup-card dd { color: var(--dim); font-size: .85rem; padding-left: 1rem; border-left: 1px solid var(--line); }
 
-    /* faq — аккордеон на grid (без обрезки по max-height) */
     .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); }
     .faq-item { background: var(--panel); }
     .faq-q {
@@ -257,7 +250,6 @@
     .faq-q .plus { color: var(--accent); font-size: 1.2rem; transition: transform .3s; }
     .faq-item.open .faq-q .plus { transform: rotate(45deg); }
 
-    /* плавное раскрытие через grid-template-rows: 0fr -> 1fr */
     .faq-a {
       display: grid;
       grid-template-rows: 0fr;
@@ -272,22 +264,20 @@
     .faq-item.open .faq-a { grid-template-rows: 1fr; }
     .faq-item.open .faq-a > div { padding-bottom: 1.2rem; }
 
-    
-  footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 5vw;
-    color: var(--dim);
-    font-size: .8rem;
-    border-top: 1px solid var(--line);
-  }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 5vw;
+      color: var(--dim);
+      font-size: .8rem;
+      border-top: 1px solid var(--line);
+    }
 
     @media (max-width: 720px) {
       .nav { display: none; }
       .hero { padding-top: 5rem; }
     }
 
-    /* уважаем настройку «уменьшить движение» */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
@@ -315,7 +305,12 @@
     <section class="hero">
       <p class="kicker">// embedded · c++ · quantum pc</p>
       <h1>ItzDdwq</h1>
-      <p class="lead">Начинающий разработчик.</p>
+      <p class="lead">
+        Начинающий разработчик.
+        <a href="https://hits.sh/itzddwq.github.io/itzddwq/" target="_blank" rel="noopener noreferrer" style="margin-left: 1rem; vertical-align: middle; display: inline-block;">
+          <img src="https://hits.sh/itzddwq.github.io/itzddwq.svg?view=today-total&label=%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D1%8B" alt="Просмотры" style="border: 0; height: 20px; border-radius: 4px;">
+        </a>
+      </p>
 
       <div class="socials">
         <a class="social-btn" href="https://github.com/itzddwq" target="_blank" rel="noopener noreferrer">
