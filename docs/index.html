@@ -309,15 +309,22 @@
       <div class="lead" style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem;">
         <span>Начинающий разработчик.</span>
         
-        <!-- Блок просмотров -->
-        <a href="https://hits.sh/itzddwq.github.io/itzddwq/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; opacity: 0.8; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
-          <!-- Иконка глазика -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffcc00" aria-hidden="true">
-            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-          </svg>
-          <!-- Сама цифра (без фона и рамок) -->
-          <img src="https://hits.sh/itzddwq.github.io/itzddwq.svg?view=today-total&label=&color=ffcc00&labelColor=050505" alt="Просмотры" style="border: 0; height: 18px; border-radius: 4px; display: block;">
-        </a>
+         <div style="display: inline-flex; align-items: center; gap: 0.5rem; margin-left: 1rem; vertical-align: middle;">
+  <!-- Иконка глазика -->
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffcc00" aria-hidden="true">
+    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+  </svg>
+  
+  <!-- Обертка для бейджа, которая обрезает левую часть с надписью "hits" -->
+  <a href="https://hits.sh/itzddwq.github.io/itzddwq/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; overflow: hidden; border-radius: 4px; height: 20px;">
+    <!-- Сдвигаем картинку влево, чтобы скрыть левую часть с текстом. 
+         Значение -45px подобрано под стандартную ширину надписи "hits". 
+         Если останется кусочек — увеличь сдвиг (например, -50px). -->
+    <img src="https://hits.sh/itzddwq.github.io/itzddwq.svg?view=today-total&color=ffcc00&labelColor=050505" 
+         alt="Просмотры" 
+         style="border: 0; height: 20px; display: block; margin-left: -45px;">
+  </a>
+         </div>
       </div>
 
       <div class="socials">
