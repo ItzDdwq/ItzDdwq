@@ -16,11 +16,3 @@
 ![GitHub Stats](https://github-stats-extended.vercel.app/api?username=ItzDdwq&include_all_commits=true&theme=dark)
 
 ![GitHub TopLang](https://github-stats-extended.vercel.app/api/top-langs?username=ItzDdwq&layout=compact&langs_count=4&theme=dark)
-
-
-## Support / Donate
-
-- [![Bitcoin](https://img.shields.io/badge/Bitcoin-F7931A?style=for-the-badge&logo=bitcoin&logoColor=white)](bitcoin:bc1qdhtrgy08tlf99u7lxvezt83jsuf457g4n2jyls) `bc1qdhtrgy08tlf99u7lxvezt83jsuf457g4n2jyls`
-- [![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white)](ethereum:0x2572de86B31f6c92A0D404a4F0365D8E16088aDF) `0x2572de86B31f6c92A0D404a4F0365D8E16088aDF`
-- [![USDT](https://img.shields.io/badge/USDT-168363?style=for-the-badge&logo=tether&logoColor=white)](tron:TA4V3nzjzcuAZeUtc4tYYebewGbtQZJV1t) `TA4V3nzjzcuAZeUtc4tYYebewGbtQZJV1t`
-- [![TON](https://img.shields.io/badge/TON-0098EA?style=for-the-badge&logoColor=white)](ton://transfer/UQBJTizEUIrjn1tQ0tXc9WXciDY3n5l5PYGmpLpf6jpk9Rou) `UQBJTizEUIrjn1tQ0tXc9WXciDY3n5l5PYGmpLpf6jpk9Rou`
